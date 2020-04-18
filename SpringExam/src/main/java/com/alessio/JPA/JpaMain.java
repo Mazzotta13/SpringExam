@@ -13,6 +13,8 @@ public class JpaMain implements CommandLineRunner {
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
+	@Autowired
+	private EmployeeService employeeService;
 	
 	public static void main(String[] args) {
 		System.out.println("JpaMain started...");
@@ -24,6 +26,15 @@ public class JpaMain implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		employeeRepository.save(new Employee("8", "Alessio", "alessio@a"));
+		employeeRepository.findAll().forEach(employee -> System.out.println(employee.toString()));
+		// test transaction
+		try {
+			//employeeService.testTransaction();
+			employeeService.testTransaction2();
+		} catch (Exception e) {
+			System.out.println("Exception");
+		}
+		
 		employeeRepository.findAll().forEach(employee -> System.out.println(employee.toString()));
 	}
 

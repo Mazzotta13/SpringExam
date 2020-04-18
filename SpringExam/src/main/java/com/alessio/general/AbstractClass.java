@@ -1,4 +1,4 @@
-package com.alessio;
+package com.alessio.general;
 
 public abstract class AbstractClass {
 	

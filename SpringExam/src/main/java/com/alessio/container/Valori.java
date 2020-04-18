@@ -1,4 +1,4 @@
-package com.alessio;
+package com.alessio.container;
 
 import java.util.List;
 
@@ -22,18 +22,18 @@ public class Valori {
 	private String testSpelCondition;
 	
 	public Valori(@Value("${test.withdefault:10}") int valueInConstructor) {
-		System.out.println("costruttore...");
+		System.out.println("Valori component: costruttore...");
 		System.out.println(testProperies);
 		System.out.println(testProperiesDefault);
-		System.out.println("valueInConstructor: "+valueInConstructor);
+		System.out.println("Valori component ->  valueInConstructor: "+valueInConstructor);
 	}
 	
 	@PostConstruct
 	public void postConstructor() {
-		System.out.println("@PostConstruct...");
-		System.out.println(testProperies);
-		System.out.println(testProperiesDefault);
-		System.out.println("testSpel: "+testSpelList);
-		System.out.println("testSpel: "+testSpelCondition);
+		System.out.println("Valori component -> @PostConstruct...");
+		System.out.println("Valori component -> testProperies: "+testProperies);
+		System.out.println("Valori component -> testProperiesDefault: "+testProperiesDefault);
+		System.out.println("Valori component -> testSpelList: "+testSpelList);
+		System.out.println("Valori component -> testSpelCondition: "+testSpelCondition);
 	}
 }

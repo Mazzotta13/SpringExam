@@ -19,15 +19,15 @@ public class JdbcWithTemplate {
 	}
 	
 	public void crateTable() {
-		String sql = "CREATE TABLE employees (id varchar(64), last_name varchar(64), email varchar(64))";
+		String sql = "CREATE TABLE employees (id varchar(64), lastname varchar(64), email varchar(64))";
 		jdbcTemplate.execute(sql);
 	}
 	
 	public void insertEmployees() {
-		String sql = "INSERT INTO employees (id, last_name, email) values (5,'maz5','maz4@foo')";
+		String sql = "INSERT INTO employees (id, lastname, email) values (5,'maz5','maz4@foo')";
 		jdbcTemplate.execute(sql);
 		// oppure
-		String sql2 = "INSERT INTO employees (id, last_name, email) VALUES (?, ?, ?)";
+		String sql2 = "INSERT INTO employees (id, lastname, email) VALUES (?, ?, ?)";
 		Object[] obj = {6, "maz6", "maz6@test"}; // parametri per l'inserimento
 		jdbcTemplate.update(sql2, obj);
 	}
@@ -38,7 +38,7 @@ public class JdbcWithTemplate {
 			public String[] mapRow(ResultSet rs, int rowNum) throws SQLException {
 				String[] result = new String[3];
 				result[0] = rs.getString("id");
-				result[1] = rs.getString("last_name");
+				result[1] = rs.getString("lastname");
 				result[2] = rs.getString("email");
 				return result;
 			}

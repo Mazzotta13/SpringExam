@@ -21,7 +21,7 @@ public class JdbcTest {
 	public void crateTable() {
 		try (Connection conn = dataSource.getConnection()) {
 			Statement stmt = conn.createStatement();
-			String sql = "CREATE TABLE employees (id varchar(64), last_name varchar(64), email varchar(64))";
+			String sql = "CREATE TABLE employees (id varchar(64), lastname varchar(64), email varchar(64))";
 			stmt.execute(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -31,7 +31,7 @@ public class JdbcTest {
 	public void insertEmployees() {
 		try (Connection conn = dataSource.getConnection()) {
 			Statement stmt = conn.createStatement();
-			String sql = "insert into employees (id, last_name, email) values (4,'maz4','maz4@foo')";
+			String sql = "insert into employees (id, lastname, email) values (4,'maz4','maz4@foo')";
 			stmt.execute(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -43,7 +43,7 @@ public class JdbcTest {
 				PreparedStatement stmt = conn.prepareStatement("SELECT * FROM employees")) {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-			    System.out.println("last_name : " + rs.getString("last_name"));
+			    System.out.println("lastname : " + rs.getString("lastname"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

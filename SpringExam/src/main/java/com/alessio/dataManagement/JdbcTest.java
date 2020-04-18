@@ -22,7 +22,7 @@ public class JdbcTest {
 		try (Connection conn = dataSource.getConnection()) {
 			Statement stmt = conn.createStatement();
 			String sql = "CREATE TABLE employees (id varchar(64), last_name varchar(64), email varchar(64))";
-			boolean rs = stmt.execute(sql);
+			stmt.execute(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

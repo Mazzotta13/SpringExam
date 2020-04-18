@@ -47,4 +47,7 @@ public class JdbcWithTemplate {
 		String[] res = jdbcTemplate.queryForObject(sql, new Object[]{4}, rowMapper );
 		System.out.println("res: id "+res[0] + " - lastname: "+res[1]);
 	}
+	
+	public void rollBackMethod() {
+	}
 }

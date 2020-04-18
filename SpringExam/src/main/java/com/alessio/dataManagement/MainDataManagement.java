@@ -13,7 +13,7 @@ public class MainDataManagement implements CommandLineRunner {
 	
 	@Autowired
 	private JdbcWithTemplate jdbcWithTemplate;
-	
+		
 	public static void main(String[] args) {
 		System.out.println("MainDataManagement container start...");
 		SpringApplication.run(MainDataManagement.class, args);

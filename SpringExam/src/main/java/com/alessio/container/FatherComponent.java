@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-@Component
 @Profile("dev")
+@Component
 public class FatherComponent {
 	private SonComponent son;
 	private PrototypeComponent prototype1;

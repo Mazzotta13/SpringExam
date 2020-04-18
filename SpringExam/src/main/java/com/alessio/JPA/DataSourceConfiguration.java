@@ -33,7 +33,7 @@ public class DataSourceConfiguration {
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em 
-		= new LocalContainerEntityManagerFactoryBean();
+			= new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(dataSource());
 		em.setPackagesToScan(new String[] { "com.alessio.JPA" });
 

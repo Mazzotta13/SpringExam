@@ -25,7 +25,7 @@ public class JpaMain implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		employeeRepository.save(new Employee("8", "Alessio", "alessio@a"));
+		employeeRepository.save(new Employee("Alessio", "alessio@a"));
 		employeeRepository.findAll().forEach(employee -> System.out.println(employee.toString()));
 		// test transaction
 		try {

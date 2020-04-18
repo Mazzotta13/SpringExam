@@ -23,7 +23,7 @@ public class EmployeeService {
 	
 	@Transactional(value = TxType.MANDATORY)
 	public void testTransaction() throws Exception {
-		employeeRepository.save(new Employee("15", "test15", "test1@email"));
+		employeeRepository.save(new Employee("test15", "test1@email"));
 		throw new Exception("ExceptionTest");
 	}
 	
@@ -34,7 +34,7 @@ public class EmployeeService {
 		transactionTemplate.execute(new TransactionCallback<String>() {
 			@Override
 			public String doInTransaction(TransactionStatus status) {
-				employeeRepository.save(new Employee("17", "test17", "test1@email"));
+				employeeRepository.save(new Employee("test17", "test1@email"));
 				throw new RuntimeException("ExceptionTest");
 			}
 		});

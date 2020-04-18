@@ -1,27 +1,30 @@
 package com.alessio.JPA;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Employee {
 	@Id
-	private String id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 	private String lastname;
 	private String email;
 	
 	public Employee() {}
 	
-	public Employee(String id, String lastname, String email) {
-		this.id = id;
+	public Employee(String lastname, String email) {
+		//this.id = id;
 		this.lastname = lastname;
 		this.email = email;
 	}
 	
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getLastname() {

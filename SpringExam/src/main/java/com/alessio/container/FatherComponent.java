@@ -2,6 +2,7 @@ package com.alessio.container;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Profile;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 @Profile("dev")
@@ -13,8 +14,11 @@ public class FatherComponent {
 	SonComponent son2;
 	private final double id;
 	
-	public FatherComponent(@Qualifier("son") SonComponent son, PrototypeComponent prototype1, 
-			PrototypeComponent prototype2) {
+	public FatherComponent(@Qualifier("son") SonComponent son, 
+			PrototypeComponent prototype1, 
+			PrototypeComponent prototype2,
+			// non ho bisogno di intNullable perchè nullabile. Senza @Nullable darebbe errore
+			@Nullable Integer intNullable) { 
 		this.id = Math.ceil(Math.random()*9999999);
 		this.son = son;
 		this.prototype1 = prototype1;

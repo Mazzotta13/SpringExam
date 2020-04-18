@@ -21,11 +21,14 @@ public class Valori {
 	@Value("#{3 > 2 ? 'conditionTrue': 'conditionFalse'}")
 	private String testSpelCondition;
 	
-	public Valori(@Value("${test.withdefault:10}") int valueInConstructor) {
+	public Valori(@Value("${test.withdefault:10}") int valueInConstructor,
+			TestProperties testProperties) {
 		System.out.println("Valori component: costruttore...");
 		System.out.println(testProperies);
 		System.out.println(testProperiesDefault);
 		System.out.println("Valori component ->  valueInConstructor: "+valueInConstructor);
+		System.out.println("testproperties, name: "+testProperties.getName());
+		System.out.println("testproperties, surname: "+testProperties.getSurname());
 	}
 	
 	@PostConstruct

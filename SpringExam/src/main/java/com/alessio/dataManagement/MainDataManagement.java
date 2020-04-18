@@ -11,6 +11,9 @@ public class MainDataManagement implements CommandLineRunner {
 	@Autowired
 	private JdbcTest jdbcTest;
 	
+	@Autowired
+	private JdbcWithTemplate jdbcWithTemplate;
+	
 	public static void main(String[] args) {
 		System.out.println("MainDataManagement container start...");
 		SpringApplication.run(MainDataManagement.class, args);
@@ -21,6 +24,9 @@ public class MainDataManagement implements CommandLineRunner {
 		jdbcTest.crateTable();
 		jdbcTest.insertEmployees();
 		jdbcTest.read();
+		// jdbc with template
+		jdbcWithTemplate.insertEmployees();
+		jdbcWithTemplate.read();
 	}
 	
 	

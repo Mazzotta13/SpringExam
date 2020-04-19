@@ -19,8 +19,6 @@ public class JpaMain implements CommandLineRunner {
 	public static void main(String[] args) {
 		System.out.println("JpaMain started...");
 		SpringApplication.run(JpaMain.class, args);
-		
-		
 	}
 
 	@Override

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/rest")
 public class MyRestController {
-	@GetMapping("/")
+	@GetMapping({"/", ""})
 	public String getRest() {
 		return "test rest...";
 	}

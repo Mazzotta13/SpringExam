@@ -15,13 +15,14 @@ public class LoggerInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		log.info("preHandler(), URI: "+request.getRequestURI() + " - session: " + request.getSession().getId());
+		// if (request.isRequestedSessionIdValid()) response.sendRedirect("/rest"); // Just a test...
 		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}
 
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		log.info("postHandle(), URI: "+request.getRequestURI() + " - viewName: " + modelAndView.getViewName());
+		log.info("postHandle(), URI: "+request.getRequestURI());
 		HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
 	}
 

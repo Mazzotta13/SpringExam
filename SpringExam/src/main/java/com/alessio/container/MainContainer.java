@@ -1,16 +1,16 @@
 package com.alessio.container;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
 
 @ComponentScan(basePackages = "com.alessio.container")
 @Configuration
 @EnableConfigurationProperties
+@SpringBootApplication
 public class MainContainer {
 
 	public static void main(String[] args) {
@@ -19,15 +19,4 @@ public class MainContainer {
 		// context.registerShutdownHook();
 		context.close(); // chiude context immediatamente
 	}
-	
-	public class BeanTest {
-		public BeanTest() {System.out.println("BeanTest: instantiated");}
-	}
-	
-	@Bean
-	@Lazy // in questo modo non vediamo il bean instanziato perchè non è mai utilizzato
-	public BeanTest beanTest() {
-		return new BeanTest();
-	}
-
 }
